@@ -25,6 +25,7 @@ class GameWindow < Gosu::Window
     # Create and load a font for drawing text on the screen
     @font = Gosu::Font.new(20)
     @cycle = 0
+    @shape_x = 0
     puts "0. In initialize\n"
   end
 
@@ -33,6 +34,7 @@ class GameWindow < Gosu::Window
   def update
   	puts "1. In update. Sleeping for one second\n"
     @cycle += 1 # add one to the current value of cycle
+    @shape_x += 10
     sleep(1)
   end
 
@@ -48,7 +50,8 @@ class GameWindow < Gosu::Window
     # Draws an image with an x, y and z
     #(z determines if it sits on or under other things that are drawn)
     @background_image.draw(0, 0, z = ZOrder::BACKGROUND)
-    @font.draw("Cycle count: #{@cycle}", 10, 10, z = ZOrder::TOP, 1.0, 1.0, Gosu::Color::BLACK)
+    @font.draw("aaaycle count: #{@cycle}", 10, 10, z = ZOrder::TOP, 1.0, 1.0, Gosu::Color::BLACK)
+    @font.draw("☐", @shape_x, 30, z = ZOrder::TOP, 3.0, 3.0, Gosu::Color::BLACK)
     puts "2. In draw\n"
   end
 end
