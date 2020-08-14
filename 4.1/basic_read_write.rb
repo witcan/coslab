@@ -16,7 +16,7 @@ end
 # which is given in the first line of the File
 def read_data_from_file(a_file)
  count = a_file.gets.to_i
- puts count.to_s
+
  5.times do
   puts a_file.gets
  end
